@@ -116,9 +116,10 @@ namespace lab7
 
         public void SortAsc()
         {
-            bool change = false;
+            bool change;
             do
             {
+                change = false;
                 for (int i = 0; i < array.Length - 1; i++)
                     if (array[i] > array[i + 1])
                     {
@@ -133,9 +134,10 @@ namespace lab7
 
         public void SortDesc()
         {
-            bool change = false;
+            bool change;
             do
             {
+                change = false;
                 for (int i = 0; i < array.Length - 1; i++)
                     if (array[i] < array[i + 1])
                     {
