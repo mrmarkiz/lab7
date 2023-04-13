@@ -12,13 +12,21 @@ namespace lab7
         void Show(string info);
     }
 
-    public class Array : IOutput
+    interface IMath
+    {
+        int Max();
+        int Min();
+        float Avg();
+        bool Search(int valueToSearch);
+    }
+
+    public class Array : IOutput, IMath
     {
         public int[] array { get; set; }
 
         public Array()
         {
-            array = new int[0];
+            array = new int[5];
         }
 
         public Array(int n)
@@ -27,7 +35,7 @@ namespace lab7
             Random rand = new Random();
             for (int i = 0; i < n; i++)
             {
-                array[i] = rand.Next(10);
+                array[i] = rand.Next(9) + 1;
             }
         }
 
@@ -53,6 +61,50 @@ namespace lab7
         {
             Show();
             Console.WriteLine($"Input string: {info}");
+        }
+
+        public int Max()
+        {
+            if (array != null && array.Length == 0)
+                return 0;
+            int max = array[0];
+            foreach (int i in array)
+            {
+                if (i > max)
+                    max = i;
+            }
+            return max;
+        }
+
+        public int Min()
+        {
+            if (array != null && array.Length == 0)
+                return 0;
+            int min = array[0];
+            foreach (int i in array)
+            {
+                if (i < min)
+                    min = i;
+            }
+            return min;
+        }
+
+        public float Avg()
+        {
+            if (array != null && array.Length == 0)
+                return 0;
+            int sum = 0;
+            foreach (int i in array)
+                sum += i;
+            return (sum / (float)array.Length);
+        }
+
+        public bool Search(int valueToSearch)
+        {
+            foreach (int i in array)
+                if (i == valueToSearch)
+                    return true;
+            return false;
         }
     }
 }
