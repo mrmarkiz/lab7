@@ -29,7 +29,7 @@ namespace lab7
                         break;
                     case 4:
                         int num;
-                        Console.Write("0 - asc 1 - not asc");
+                        Console.WriteLine("0 - asc 1 - not asc");
                         if (int.TryParse(Console.ReadLine(), out num))
                         {
                             array.SortByParam(Convert.ToBoolean(num));
