@@ -113,5 +113,47 @@ namespace lab7
                     return true;
             return false;
         }
+
+        public void SortAsc()
+        {
+            bool change = false;
+            do
+            {
+                for (int i = 0; i < array.Length - 1; i++)
+                    if (array[i] > array[i + 1])
+                    {
+                        int tmp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = tmp;
+                        change = true;
+                    }
+
+            } while (change);
+        }
+
+        public void SortDesc()
+        {
+            bool change = false;
+            do
+            {
+                for (int i = 0; i < array.Length - 1; i++)
+                    if (array[i] < array[i + 1])
+                    {
+                        int tmp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = tmp;
+                        change = true;
+                    }
+
+            } while (change);
+        }
+
+        public void SortByParam(bool isAsc)
+        {
+            if (isAsc)
+                SortAsc();
+            else
+                SortDesc();
+        }
     }
 }
