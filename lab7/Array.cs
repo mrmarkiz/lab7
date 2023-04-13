@@ -20,6 +20,13 @@ namespace lab7
         bool Search(int valueToSearch);
     }
 
+    interface ISort
+    {
+        void SortAsc();
+        void SortDesc();
+        void SortByParam(bool isAsc);
+    }
+
     public class Array : IOutput, IMath
     {
         public int[] array { get; set; }
